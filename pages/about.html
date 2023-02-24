@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Pulse FM</title>
-    <!-- Add the Bootstrap CSS file -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -17,32 +19,8 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
     />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <style>
-      body {
-        position: relative;
-        font-family: "Poppins", sans-serif;
-      }
-
-      body::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        width: 100%;
-        height: 90vh;
-        opacity: 0.3;
-        background-image: url(img/bg.jpg);
-        background-size: cover;
-      }
-    </style>
   </head>
-  <body class="bg-dark" style="color: white">
-    <!-- Navigation bar -->
-
+  <body>
     <nav class="fixed-top navbar navbar-light bg-light">
       <a class="navbar-brand" href="/">Pulse FM</a>
       <button
@@ -59,10 +37,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="/"
-              ><i class="fas fa-home"></i> Home
-              <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="/"><i class="fas fa-home"></i> Home </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/pages/presenters.html">
@@ -70,57 +45,55 @@
             </a>
           </li>
           <li>
-            <a class="nav-link" href="pages/prev-shows.html">
+            <a class="nav-link" href="/pages/prev-shows.html">
               <i class="fas fa-podcast"></i> Our Shows
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/upcoming-shows.html">
+            <a class="nav-link" href="/pages/upcoming-shows.html">
               <i class="fas fa-calendar-alt"></i> Announcements
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/contact.html">
+            <a class="nav-link" href="/pages/contact.html">
               <i class="fas fa-envelope"></i> Contact Us
             </a>
           </li>
           <li>
-            <a class="nav-link" href="pages/about.html">
+            <a class="nav-link" href="/pages/about.html">
               <i class="fas fa-info-circle"></i> About Us
+              <span class="sr-only">(current)</span>
             </a>
           </li>
         </ul>
       </div>
     </nav>
+    <div style="height: 40px" class="nav-space"></div>
 
-    <!-- Hero image -->
-    <div
-      style="min-height: 80vh"
-      class="jumbotro container my-5 text-center d-flex flex-column justify-content-center align-content-center"
-    >
-      <h1 class="display-5 text-center">Welcome to Pulse FM</h1>
-      <p class="lead">The go-to destination for music lovers in Kenya.</p>
-      <hr class="my-4" />
-      <p>
-        If you appreciate the crème of African hit music, Pulse FM will
-        continuously deliver this.
-      </p>
-
-      <div class="d-flex flex-wrap justify-content-center">
-        <a
-          class="btn btn-primary btn-lg m-2"
-          href="/pages/prev-shows.html"
-          role="button"
-          ><i class="fas fa-podcast"></i>
-
-          Listen to Our Shows</a
-        >
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-center mb-4">About Pulse Live Radio FM</h2>
+          <p class="lead">
+            Pulse Live Radio FM is a popular radio station that broadcasts
+            across the country. We provide 24/7 music and talk shows, covering a
+            wide range of topics from news and current events to sports,
+            entertainment, and lifestyle.
+          </p>
+          <p>
+            Our mission is to keep our listeners informed and entertained, and
+            to serve as a platform for discussion and debate on important issues
+            affecting our community.
+          </p>
+          <p>
+            With a talented team of DJs, hosts, and reporters, Pulse Live Radio
+            FM has become a trusted source of information and entertainment for
+            millions of people.
+          </p>
+          <p>Thank you for tuning in!</p>
+        </div>
       </div>
-
-      <a class="mt-4" href="/pages/presenters.html">Meet our Presenters</a>
     </div>
-
-    <!-- Main content -->
     <footer
       class="footer bg-light d-flex align-items-center justify-content-center"
     >
