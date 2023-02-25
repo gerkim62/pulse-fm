@@ -19,6 +19,28 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
     />
+
+    <style>
+      body {
+        position: relative;
+        font-family: "Poppins", sans-serif;
+        background-color: black;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+
+        background-image: url(../img/announce-bg.jpg);
+        background-size: contain;
+      }
+    </style>
   </head>
   <body>
     <nav class="fixed-top navbar navbar-light bg-light">
@@ -72,7 +94,7 @@
     <div style="height: 80px" class="nav-space"></div>
 
     <div style="min-height: 75vh" class="container my-1">
-      <h2 class="text-center">Upcoming shows</h2>
+      <h2 class="text-center text-light">Announcements</h2>
       <div class="alert alert-info" role="alert">
         <h4 class="alert-heading">Show Title 1</h4>
         <p class="mb-0">This show will be aired on March 1, 2023 at 8:00 PM.</p>
