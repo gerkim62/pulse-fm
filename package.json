@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "firebase": "^9.17.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "name": "pulse-fm",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerkim62/pulse-fm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gerkim62/pulse-fm/issues"
+  },
+  "homepage": "https://github.com/gerkim62/pulse-fm#readme",
+  "description": ""
+}
