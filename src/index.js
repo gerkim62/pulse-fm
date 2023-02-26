@@ -68,7 +68,40 @@ if (currentPage === "presenter") {
 }
 
 if (currentPage === "prev-shows") {
-  console.log("prev-shows");
+  console.log("prev-shows 2");
+  const showsUl = document.getElementById("shows-ul");
+  console.log(showsUl);
+  (async () => {
+    const shows = await getShows();
+    console.log(shows);
+    shows.forEach((show) => {
+      const { date, time } = getDateAndTime(show.timestamp.seconds);
+
+      const showElement = `<li class="card d-flex flex-column mb-3">
+      <div class="card-body flex-md-row d-flex flex-column justify-content-between">
+        <div class="text-center d-md-flex flex-md-row align-items-center">
+          <h5 class="card-title mb-md-0 mb-3 mr-2 text-center text-md-left">
+           ${show.title}
+          </h5>
+          <p class="card-text mb-0">Presenter: <b>${show.presenter}</b></p>
+          <p class="small text-muted mt-3">
+        Posted on <span class="font-weight-bold" style="font-size: 0.8rem;">${date}</span> at 
+        <span class="font-weight-bold" style="font-size: 0.8rem;">${time}</span>.
+        </div>
+        <div class="d-flex justify-content-around align-items-center mt-3 ml-3">
+          <a href="${show.audioUrl}" class="btn btn-primary mr-2">
+            <i class="fas fa-play" style="font-family: Poppins, &quot;Font Awesome 5 Free&quot;;"></i> Play
+          </a>
+          <a hidden href="#" class="btn btn-secondary btn-outline-primary">
+            <i class="fas fa-download" style="font-family: Poppins, &quot;Font Awesome 5 Free&quot;;"></i> Download
+          </a>
+        </div>
+      </div>
+    </li>`;
+      showsUl.innerHTML += showElement;
+      console.log(show);
+    });
+  })();
 }
 
 async function getAnnouncements() {
@@ -84,6 +117,19 @@ async function getAnnouncements() {
     announcements.push(doc.data());
   });
   return announcements;
+}
+
+async function getShows() {
+  console.log("getShows");
+  const db = getFirestore();
+  const showsRef = collection(db, "shows");
+  const showsQuery = query(showsRef, orderBy("timestamp", "desc"));
+  const showsSnapshot = await getDocs(showsQuery);
+  const shows = [];
+  showsSnapshot.forEach((doc) => {
+    shows.push(doc.data());
+  });
+  return shows;
 }
 
 function getDateAndTime(seconds) {
