@@ -45,6 +45,10 @@ if (currentPage === "upcoming-shows") {
 
   (async () => {
     const announcements = await getAnnouncements();
+    if (announcements.length > 0) {
+      announcementsContainer.querySelector("P").remove();
+    }
+
     console.log(announcements);
     announcements.forEach((announcement) => {
       const { date, time } = getDateAndTime(announcement.timestamp.seconds);
@@ -73,7 +77,8 @@ if (currentPage === "prev-shows") {
   console.log(showsUl);
   (async () => {
     const shows = await getShows();
-    console.log(shows);
+    if (shows.length > 0) showsUl.innerHTML = "";
+    console.log(shows, "HI");
     shows.forEach((show) => {
       const { date, time } = getDateAndTime(show.timestamp.seconds);
 
