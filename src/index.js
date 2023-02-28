@@ -46,21 +46,35 @@ if (currentPage === "upcoming-shows") {
   (async () => {
     const announcements = await getAnnouncements();
     if (announcements.length > 0) {
-      announcementsContainer.querySelector("P").remove();
+      announcementsContainer.querySelector("#no-announcement").remove();
     }
 
     console.log(announcements);
     announcements.forEach((announcement) => {
       const { date, time } = getDateAndTime(announcement.timestamp.seconds);
 
-      const announcementElement = `<div class="alert alert-info" role="alert">
-        <h4 class="alert-heading">${announcement.title}</h4>
-        <p class="mb-0">${announcement.body} </p><p class="small text-muted mt-3">
-        Posted on <span class="font-weight-bold" style="font-size: 0.8rem;">${date}</span> at 
-        <span class="font-weight-bold" style="font-size: 0.8rem;">${time}</span>.
+      // const announcementElement = `<div class="alert alert-info" role="alert">
+      //   <h4 class="alert-heading">${announcement.title}</h4>
+      //   <p class="mb-0">${announcement.body} </p><p class="small text-muted mt-3">
+      //   Posted on <span class="font-weight-bold" style="font-size: 0.8rem;">${date}</span> at
+      //   <span class="font-weight-bold" style="font-size: 0.8rem;">${time}</span>.
+      // </p>
+
+      // </div>`;
+      const announcementElement = `<div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">${announcement.title}</h4>
+      <p>
+        ${announcement.body}
       </p>
-      
-      </div>`;
+      <hr>
+      <p class="small text-muted my-0">
+        <i class="far fa-calendar-alt"></i> Posted on 
+        <span class="font-weight-bold" style="font-size: 0.8rem">${date}</span>
+        <i class="far fa-clock ml-3"></i> 
+        <span class="font-weight-bold" style="font-size: 0.8rem">${time}</span>.
+      </p>
+    </div>
+    `;
       announcementsContainer.innerHTML += announcementElement;
       console.log(announcement);
     });
@@ -139,7 +153,12 @@ async function getShows() {
 
 function getDateAndTime(seconds) {
   const dateObj = new Date(seconds * 1000); // Convert seconds to milliseconds
-  const date = dateObj.toLocaleDateString();
+  const date = dateObj.toLocaleDateString("en-US", {
+    // weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
   const time = dateObj.toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
